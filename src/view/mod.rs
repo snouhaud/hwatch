@@ -166,7 +166,11 @@ impl View {
         self.watch.watch_update();
     }
 
-    // fn switch_word_diff(&mut self) {
+    // fn scroll_up() {
+
+    // }
+
+    // fn scroll_down() {
         
     // }
 
@@ -182,12 +186,15 @@ impl View {
                         KEY_RESIZE => self.watch.resize(),
 
                         // watch pad up/down
-                        KEY_UP => self.watch.window_scroll_up(), // Up
-                        KEY_DOWN => self.watch.window_scroll_down(), // Down
+                        KEY_UP | 0x77 => self.watch.window_scroll_up(), // Up or w
+                        KEY_DOWN | 0x73 => self.watch.window_scroll_down(), // Down or s
 
                         // history pad up/down
-                        KEY_SR => self.history_scroll_up(), // Shift + Up
-                        KEY_SF => self.history_scroll_down(), // Shift + Down
+                        KEY_PPAGE | 0x57 => self.history_scroll_up(), // Page Up or W
+                        KEY_NPAGE | 0x53 => self.history_scroll_down(), // Page Down or S
+
+                        // change scroll window
+                        // KEY_STAB => self.history_scroll_down(),
 
                         // change diff mode
                         0x64 => self.toggle_diff(), // d(0x64)

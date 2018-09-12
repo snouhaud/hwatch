@@ -18,7 +18,6 @@ use self::clap::{App, Arg, AppSettings};
 use input::Input;
 use view::View;
 
-
 // Parse args and options
 fn build_app() -> clap::App<'static, 'static> {
     // get own name
@@ -81,8 +80,8 @@ fn main() {
     let _matches = build_app().get_matches();
 
     // get options
-    let mut _interval:u64 = _matches.value_of("interval").unwrap().parse::<u64>().unwrap();
-    let mut _diff = _matches.is_present("differences");
+    let _interval:u64 = _matches.value_of("interval").unwrap().parse::<u64>().unwrap();
+    let _diff = _matches.is_present("differences");
 
     // create channel
     let (tx, rx) = channel();

@@ -84,7 +84,7 @@ impl CmdRun {
             loop {
                 let (stdout_bytes, stderr_bytes) = match (stdout.fill_buf(), stderr.fill_buf()) {
                     (Ok(stdout), Ok(stderr)) => {
-                        // merge stdout stderr
+                        // merge stdout and stderr
                         vec_output.write_all(stdout).expect("");
                         vec_output.write_all(stderr).expect("");
 
